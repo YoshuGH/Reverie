@@ -93,7 +93,6 @@ public class PlayerController : MonoBehaviour
                 movableBoxRb = null;
                 movableBoxMoveDir = Vector3.zero;
             }
-            print(distanceBoxToPlayer);
         }
 
         if (isPushing && pickObjControl.action.triggered)
@@ -149,18 +148,20 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 targetAngle = (transform.position + move.ToIsometric()) - transform.position;
             Quaternion rot = Quaternion.identity;
-            if(isPushing)
+
+            if (activeControls)
             {
-                Vector3 alignedForward = Helpers.NearestWorldAxis(transform.forward);
-                Vector3 alignedUp = Helpers.NearestWorldAxis(transform.up);
-                rot = Quaternion.LookRotation(alignedForward, alignedUp);
-            }
-            else
-            {
-                rot = Quaternion.LookRotation(targetAngle, Vector3.up);
-            }
-            if(activeControls)
-            {
+                if (isPushing)
+                {
+                    Vector3 alignedForward = Helpers.NearestWorldAxis(transform.forward);
+                    Vector3 alignedUp = Helpers.NearestWorldAxis(transform.up);
+                    rot = Quaternion.LookRotation(alignedForward, alignedUp);
+                }
+                else
+                {
+                    rot = Quaternion.LookRotation(targetAngle, Vector3.up);
+                }
+
                 gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, rot, rotationSpeed);
 
                 //Im running
