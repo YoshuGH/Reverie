@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PerspectiveTeleporter : MonoBehaviour
@@ -6,6 +7,12 @@ public class PerspectiveTeleporter : MonoBehaviour
     [SerializeField] private Transform teleporterReceiver;
 
     private bool playerIsOverlapping = false;
+
+    public Transform TeleporterReceiver
+    {
+        get { return teleporterReceiver; }
+        set { teleporterReceiver = value; }
+    }
 
     void Start()
     {
@@ -20,7 +27,7 @@ public class PerspectiveTeleporter : MonoBehaviour
             float dot = Vector3.Dot(portalToPlayer, transform.forward);
 
             //The player has moved across the portal
-            if (dot < 0f)
+            if (dot < 0f && teleporterReceiver != null)
             {
                 //Teleport Stuff
                 float rotationDiff = -Quaternion.Angle(transform.rotation, teleporterReceiver.rotation);
@@ -37,12 +44,12 @@ public class PerspectiveTeleporter : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
-            playerIsOverlapping = true; print("Entre");
+            playerIsOverlapping = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
-            playerIsOverlapping = false; print("Sali");
+            playerIsOverlapping = false;
     }
 }
