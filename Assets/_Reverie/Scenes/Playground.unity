@@ -4154,6 +4154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickUpRange: 2.5
   moveForce: 100
+  dropForceMultiplier: 2
   holderObj: {fileID: 1645669100}
   pickObjControl: {fileID: 2406056657602112372, guid: 9539dff73a8c6b4479754f3b97cf637a, type: 3}
 --- !u!43 &108362603
@@ -10799,7 +10800,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh364428
+  m_Name: pb_Mesh24192
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11896,7 +11897,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh364494
+  m_Name: pb_Mesh24260
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12701,7 +12702,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh364524
+  m_Name: pb_Mesh24290
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16392,8 +16393,8 @@ MonoBehaviour:
   transformationType: 1
   movingObjects:
   - transform: {fileID: 1151230672}
-    movementAxis: 2
-    translationPivot: 1
+    movementAxis: 1
+    translationPivot: 0
     direction: 0
   activationDistance: 1.15
   rotationSpeed: 0.02
@@ -37514,7 +37515,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh363376
+  m_Name: pb_Mesh23116
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -43741,11 +43742,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!4 &1048515889 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -5610973534528953695, guid: e3f1e7e183c92ed4abb96f04941c144d, type: 3}
-  m_PrefabInstance: {fileID: 1864333883}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1056199307
 Mesh:
   m_ObjectHideFlags: 0
@@ -55763,7 +55759,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384630576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.443, y: 1.5, z: 3.709}
+  m_LocalPosition: {x: 1, y: 1.25, z: 4}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 1135292945}
@@ -62249,7 +62245,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1502437006}
   - component: {fileID: 1502437009}
-  - component: {fileID: 1502437008}
   - component: {fileID: 1502437010}
   - component: {fileID: 1502437007}
   m_Layer: 7
@@ -62288,23 +62283,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &1502437008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502437005}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afddc912a2bd0394bb3699a248c813c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objMass: 500
-  pushAtMass: 100
-  pushingTime: 3
-  forceToPush: 500
-  vel: 0
 --- !u!54 &1502437009
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -72637,7 +72615,7 @@ Transform:
   m_LocalPosition: {x: -0.068, y: -0.19, z: 0.075}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1048515889}
+  m_Father: {fileID: 2106017393}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1646164038
@@ -101485,6 +101463,11 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!4 &2106017393 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1247054453727807873, guid: e3f1e7e183c92ed4abb96f04941c144d, type: 3}
+  m_PrefabInstance: {fileID: 1864333883}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2118214247
 GameObject:
   m_ObjectHideFlags: 0
