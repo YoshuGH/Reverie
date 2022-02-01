@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputActionReference jumpControl;
     [SerializeField] private InputActionReference runControl;
     [SerializeField] private InputActionReference pickObjControl;
+    [SerializeField] private InputActionReference pauseControl;
     [SerializeField] private float rotationSpeed = 0.5f;
     [SerializeField] private float inputSmoothSpeed = 0.2f;
     [SerializeField] private float animSmoothSpeed = 0.2f;
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour
         jumpControl.action.Enable();
         runControl.action.Enable();
         pickObjControl.action.Enable();
+        pauseControl.action.Enable();
     }
 
     private void OnDisable()
@@ -56,6 +58,17 @@ public class PlayerController : MonoBehaviour
         jumpControl.action.Disable();
         runControl.action.Disable();
         pickObjControl.action.Disable();
+        pauseControl.action.Disable();
+    }
+
+    private void Awake()
+    {
+        GameManager.Instance.OnGameStateChanged += OnGameStateChange;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnGameStateChanged -= OnGameStateChange;
     }
 
     private void Start()
@@ -188,6 +201,17 @@ public class PlayerController : MonoBehaviour
         }
         else { anim.SetFloat(speedAnimParamID, 0f, animSmoothSpeed, Time.deltaTime); }
         #endregion
+
+        #region Pause
+        if(pauseControl.action.triggered)
+        {
+            GameState currentGameState = GameManager.Instance.state;
+            print(currentGameState);
+            GameState newState = currentGameState == GameState.Gameplay ? GameState.Pause : GameState.Gameplay;
+
+            GameManager.Instance.SetGameState(newState);
+        }
+        #endregion
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -210,6 +234,11 @@ public class PlayerController : MonoBehaviour
                 movableBoxMoveDir = Vector3.zero;
             }
         }
+    }
+
+    private void OnGameStateChange(GameState _newState)
+    {
+        activeControls = _newState == GameState.Gameplay;
     }
 
     public void ChangeAnimationCrossfade(string _animationName)
