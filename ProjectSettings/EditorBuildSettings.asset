@@ -8,5 +8,17 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/_Reverie/Scenes/MainMenu.unity
+    guid: 64960f27923fbe746aab59e478bd6256
+  - enabled: 1
+    path: Assets/_Reverie/Scenes/Prologue.unity
+    guid: 891f622937dece24a827e70a6941f459
+  - enabled: 1
+    path: Assets/_Reverie/Scenes/Cap1_Act1.unity
+    guid: cdc7437ede907b648a4290cc6d5841c7
+  - enabled: 1
+    path: Assets/_Reverie/Scenes/Cap1_Act2.unity
+    guid: c2207d3e96bfedc41b277bce176f8328
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: f7b83489f82639c40a549b464b73de6d, type: 2}

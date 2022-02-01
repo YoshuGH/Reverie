@@ -77,7 +77,7 @@ public class TransformationsMechanism : MonoBehaviour
                 anim.Play(activationAnimation);
                 foreach(MovingObjects _obj in movingObjects)
                 {
-                    targetGroup.AddMember(_obj.transform, 1, 1);
+                    targetGroup.AddMember(_obj.transform, 5, 1);
                 }
             }
             else
@@ -341,6 +341,7 @@ public class TransformationsMechanism : MonoBehaviour
                 PerspectiveTeleporter teleporterInMovingOBJ = _obj.transform.GetChild(i).GetComponent<PerspectiveTeleporter>();
                 if (teleporterInMovingOBJ != null)
                 {
+                    //teleporterInMovingOBJ.TeleporterReceiver = null;
                     Transform tpTransform = teleporterInMovingOBJ.GetComponent<Transform>();
                     if (Physics.Raycast(tpTransform.position, tpTransform.TransformDirection(Vector3.forward) * -2, out hit, 2f, levelMask))
                     {

@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     private Vector2 inputSmoothVel, currentInputVector, movement;
     private Rigidbody movableBoxRb;
 
-
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float pushBoxSpeed = 2.0f;
     [SerializeField] private float pushSpeed = 1.4f;
@@ -29,6 +28,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float rotationSpeed = 0.5f;
     [SerializeField] private float inputSmoothSpeed = 0.2f;
     [SerializeField] private float animSmoothSpeed = 0.2f;
+    [SerializeField] private Transform currentRespawn;
 
     #region Accesors
     public bool ActiveControls
@@ -40,6 +40,12 @@ public class PlayerController : MonoBehaviour
     public InputActionReference MovementControl
     {
         get { return movementControl; }
+    }
+
+    public Transform CurrentTransform
+    {
+        set { currentRespawn = value; }
+        get { return currentRespawn; }
     }
     #endregion
 
