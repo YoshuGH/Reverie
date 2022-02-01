@@ -137,7 +137,7 @@ MonoBehaviour:
   jumpControl: {fileID: 5058621280669222232, guid: 9539dff73a8c6b4479754f3b97cf637a, type: 3}
   runControl: {fileID: 5555906834059967707, guid: 9539dff73a8c6b4479754f3b97cf637a, type: 3}
   pickObjControl: {fileID: 2406056657602112372, guid: 9539dff73a8c6b4479754f3b97cf637a, type: 3}
-  pauseControl: {fileID: 0}
+  pauseControl: {fileID: -3469517273607392245, guid: 9539dff73a8c6b4479754f3b97cf637a, type: 3}
   rotationSpeed: 0.075
   inputSmoothSpeed: 0.1
   animSmoothSpeed: 0.3
